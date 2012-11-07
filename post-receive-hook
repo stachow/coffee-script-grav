@@ -3,6 +3,14 @@
 echo "Current dir:"
 echo $PWD
 
+
+echo "Change to dir of script:"
+cd "$(dirname "$0")"
+
+
+echo "New Current dir:"
+echo $PWD
+
 chmod +x ./start-node
 chmod +x ./stop-node
 
