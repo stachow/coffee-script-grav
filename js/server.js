@@ -6,9 +6,11 @@ sys = require("sys");
 http = require("http");
 
 server = http.create(function(request, response) {
-  response.writeHead(200);
+  response.writeHead(200, {
+    "content-type": "text/plain"
+  });
   response.write("Hello world");
-  response.end;
+  response.end();
 });
 
 server.listen(8080);
