@@ -1,2 +1,6 @@
 #!/bin/sh
-GIT_WORK_TREE=/var/nodejs/app/site git checkout -f
+chmod +x ./start-node
+chmod +x ./stop-node
+
+./stop-node
+./start-node
