@@ -2,7 +2,7 @@ sys = require("sys")
 http = require("http")
 
 # Create our HTTP server.
-server = http.create( 
+server = http.createServer( 
   (request, response) -> 
     response.writeHead(200, "content-type": "text/plain")
     response.write("Hello world")

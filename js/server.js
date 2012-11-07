@@ -5,7 +5,7 @@ sys = require("sys");
 
 http = require("http");
 
-server = http.create(function(request, response) {
+server = http.createServer(function(request, response) {
   response.writeHead(200, {
     "content-type": "text/plain"
   });
