@@ -1,4 +1,8 @@
 #!/bin/sh
+
+echo "Current dir:"
+echo $PWD
+
 chmod +x ./start-node
 chmod +x ./stop-node
 
