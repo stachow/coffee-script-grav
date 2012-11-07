@@ -4,7 +4,7 @@ http = require("http")
 # Create our HTTP server.
 server = http.create( 
   (request, response) -> 
-    response.writeHead( 200)
+    response.writeHead(200)
     response.write("Hello world")
     response.end
     return
