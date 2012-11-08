@@ -9,7 +9,7 @@ server = http.createServer(function(request, response) {
   response.writeHead(200, {
     "content-type": "text/plain"
   });
-  response.write("Hello world");
+  response.write("Hello world\n");
   response.end();
 });
 

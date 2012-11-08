@@ -5,7 +5,7 @@ http = require("http")
 server = http.createServer( 
   (request, response) -> 
     response.writeHead(200, "content-type": "text/plain")
-    response.write("Hello world")
+    response.write("Hello world\n")
     response.end()
     return
 )
