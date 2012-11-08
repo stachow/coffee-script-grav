@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh ubuntu@aws.stachow.co.uk "/usr/lib/node_modules/forever/bin/forever stop /var/nodejs/app/site/js/server.js"

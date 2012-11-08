@@ -1,11 +1,2 @@
 #!/bin/bash
-
-cd "$(dirname "$0")"
-
-# Invoke the Forever module (to START our Node.js server).
-/usr/lib/node_modules/forever/bin/forever \
-start \
--al forever.log \
--ao out.log \
--ae err.log \
-js/server.js
+/usr/lib/node_modules/forever/bin/forever start -al forever.log -ao out.log -ae err.log /var/nodejs/app/site/js/server.js
