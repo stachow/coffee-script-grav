@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh "/usr/lib/node_modules/forever/bin/forever start -al forever.log -ao out.log -ae err.log /var/nodejs/app/site/js/server.js"
+ssh ubuntu@aws.stachow.co.uk "/usr/lib/node_modules/forever/bin/forever start -al forever.log -ao out.log -ae err.log /var/nodejs/app/site/js/server.js"
