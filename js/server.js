@@ -14,11 +14,15 @@ getIp = function(req) {
 };
 
 server = http.createServer(function(request, response) {
+  var d;
   response.writeHead(200, {
     "content-type": "text/plain"
   });
   response.write("Hello world\n");
-  response.write(getIp(request));
+  response.write(getIp(request) + "\n");
+  d = new Date;
+  response.write(d.toLocaleDateString() + "\n");
+  response.write(d.toLocaleTimeString() + "\n");
   response.end();
 }).listen(8080);
 

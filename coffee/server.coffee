@@ -11,8 +11,11 @@ getIp = (req) ->
 server = http.createServer (request, response) -> 
     response.writeHead 200, "content-type": "text/plain"
     response.write "Hello world\n"
-    response.write getIp request
-    do response.end
+    response.write getIp(request) + "\n"
+    d = new Date
+    response.write d.toLocaleDateString() + "\n"
+    response.write d.toLocaleTimeString() + "\n"
+    response.end()
     return
 .listen 8080
 

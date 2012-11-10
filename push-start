@@ -1,0 +1,4 @@
+#!/bin/sh
+git push origin master
+./stop-node-remote
+./start-node-remote
