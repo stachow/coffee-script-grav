@@ -1,13 +1,11 @@
 sys = require "sys"
 http = require "http"
 
-
 getIp = (req) ->
 	if req.headers['x-forwarded-for'] 
 		req.headers['x-forwarded-for']
 	else
 		req.connection.remoteAddress
-
 
 # Create our HTTP server.
 server = http.createServer (request, response) -> 
@@ -16,10 +14,7 @@ server = http.createServer (request, response) ->
     response.write getIp request
     do response.end
     return
-
-
-# Point the HTTP server to port 8080.
-server.listen 8080
+.listen 8080
 
 # For logging....
 sys.puts "Server is running on 8080"

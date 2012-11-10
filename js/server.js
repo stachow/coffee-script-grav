@@ -20,8 +20,6 @@ server = http.createServer(function(request, response) {
   response.write("Hello world\n");
   response.write(getIp(request));
   response.end();
-});
-
-server.listen(8080);
+}).listen(8080);
 
 sys.puts("Server is running on 8080");
