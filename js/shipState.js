@@ -9,7 +9,7 @@ define(['./physics'], function(physics) {
       this.direction = 0;
       this.x = 0;
       this.y = 0;
-      this.thrust = settings.thrust;
+      this.thrust = settings.ship.thrust;
     }
 
     ShipState.prototype.go = function() {};

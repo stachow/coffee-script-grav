@@ -8,4 +8,13 @@ window.log = function() {
   }
 };
 
-require(['settings', 'renderer'], function(settings, renderer) {});
+require(['settings', 'renderer', 'State'], function(settings, renderer, State) {
+  var canvas, ctx, state, _ref;
+  canvas = document.getElementById('gameScreen');
+  _ref = [canvas.width, canvas.height], settings.screen.width = _ref[0], settings.screen.height = _ref[1];
+  ctx = canvas.getContext('2d');
+  state = new State(settings);
+  state.shipState.x = 200;
+  state.shipState.y = 300;
+  renderer(ctx, settings, state);
+});

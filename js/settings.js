@@ -8,6 +8,11 @@ define({
   },
   ship: {
     color: '#999999',
-    thrust: 1
+    thrustRatio: 1,
+    turnRatio: 1
+  },
+  screen: {
+    height: 0,
+    width: 0
   }
 });

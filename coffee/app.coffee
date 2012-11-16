@@ -6,9 +6,26 @@ window.log = ->
 	console.log(Array.prototype.slice.call arguments) if this.console
 	return
 
-require ['settings','renderer'], 
-		( settings,  renderer) ->
+
+
+
+require ['settings','renderer','State'], 
+		( settings,  renderer,  State) ->
 			
+			canvas = document.getElementById 'gameScreen'
+			# Augment settings from the canvas
+			[settings.screen.width, settings.screen.height] = [canvas.width, canvas.height]
+			ctx = canvas.getContext '2d'
+
+			#
+			state = new State settings
+			state.shipState.x = 200
+			state.shipState.y = 300
+
+			renderer ctx, settings, state
+
+			
+			return			
 
 
 
