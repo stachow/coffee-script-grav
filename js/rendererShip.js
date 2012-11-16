@@ -2,24 +2,25 @@
 
 define(['./shipShape'], function(shipShape) {
   return function(ctx, settings, state) {
-    var nose, point, startX, startY, _i, _len, _ref, _ref1;
-    _ref = [state.shipState.x, state.shipState.y], startX = _ref[0], startY = _ref[1];
+    var nose, point, rotateFactor, _i, _len, _ref;
     ctx.save();
+    ctx.translate(state.shipState.x, state.shipState.y);
     ctx.strokeStyle = settings.ship.color;
     ctx.fillStyle = 'red';
-    ctx.translate(startX, startY);
     ctx.fillRect(-1, -1, 2, 2);
-    ctx.rotate(45 * Math.PI / 180);
+    rotateFactor = state.shipState.direction * Math.PI / 180;
+    ctx.rotate(rotateFactor);
     nose = shipShape.points[0];
     ctx.moveTo(nose[0], nose[1]);
     ctx.beginPath();
-    _ref1 = shipShape.points;
-    for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-      point = _ref1[_i];
+    _ref = shipShape.points;
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      point = _ref[_i];
       ctx.lineTo(point[0], point[1]);
     }
     ctx.lineTo(nose[0], nose[1]);
     ctx.stroke();
+    ctx.rotate(-1 * rotateFactor);
     ctx.translate(0, 0);
     ctx.restore();
   };

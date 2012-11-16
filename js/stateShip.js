@@ -14,16 +14,6 @@ define(['./physics'], function(physics) {
 
     ShipState.prototype.go = function() {};
 
-    ShipState.prototype.changeDirection = function(delta) {
-      this.direction += delta;
-      if (this.direction >= 360) {
-        this.direction -= 360;
-      }
-      if (this.direction < 0) {
-        return this.direction += 360;
-      }
-    };
-
     return ShipState;
 
   })();

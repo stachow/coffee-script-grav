@@ -9,12 +9,22 @@ window.log = function() {
 };
 
 require(['settings', 'renderer', 'State'], function(settings, renderer, State) {
-  var canvas, ctx, state, _ref;
+  var canvas, ctx, gameLoopId, i, state, _ref;
   canvas = document.getElementById('gameScreen');
   _ref = [canvas.width, canvas.height], settings.screen.width = _ref[0], settings.screen.height = _ref[1];
   ctx = canvas.getContext('2d');
   state = new State(settings);
-  state.shipState.x = 200;
-  state.shipState.y = 300;
-  renderer(ctx, settings, state);
+  state.shipState.x = settings.screen.width - 200;
+  state.shipState.y = settings.screen.height - 200;
+  document.onkeydown = state.keyState.keyDownHandler;
+  document.onkeyup = state.keyState.keyUpHandler;
+  i = 0;
+  gameLoopId = setInterval(function() {
+    state.update();
+    renderer(ctx, settings, state);
+    i = i + 1;
+    if (i === 1000) {
+      clearInterval(gameLoopId);
+    }
+  }, 1000 / settings.screen.framesPerSecond);
 });
