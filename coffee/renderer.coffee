@@ -1,4 +1,4 @@
-define ['./rendererBackground','./rendererShip'], 
+define ['rendererBackground','rendererShip'], 
 		  (rendererBackground,    rendererShip) ->
 		  		(ctx, settings, state) ->
 				  	rendererBackground ctx, settings 

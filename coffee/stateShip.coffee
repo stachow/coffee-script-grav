@@ -1,4 +1,4 @@
-define ['./physics'], 
+define ['physics'], 
 	(physics)->
 		class ShipState
 			constructor: (settings) ->

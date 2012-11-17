@@ -1,10 +1,11 @@
-define ['./shipState', './StateKey'], 
-	(ShipState, StateKey) ->
+define ['./shipState'], 
+	(ShipState) ->
 		class State
 			constructor: (settings) ->
 				@shipState 	= new ShipState settings
-				@keyState 	= new StateKey  settings
 
-			update: ->
-				@shipState.changeDirection @keyState.currentCommand()
+			update: (commands)->
+				@shipState.changeDirection 	commands.currentTurnCommand()
+				@shipState.thrustOn 		commands.currentThrustCommand()
+				@shipState.updatePosition()
 				return

@@ -8,23 +8,19 @@ window.log = function() {
   }
 };
 
-require(['settings', 'renderer', 'State'], function(settings, renderer, State) {
-  var canvas, ctx, gameLoopId, i, state, _ref;
-  canvas = document.getElementById('gameScreen');
-  _ref = [canvas.width, canvas.height], settings.screen.width = _ref[0], settings.screen.height = _ref[1];
-  ctx = canvas.getContext('2d');
+require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(settings, renderer, State, Commands, browser) {
+  var canvas, commands, ctx, gameLoopId, i, state, _ref;
+  canvas = browser.getCanvas('gameScreen');
+  _ref = [canvas.getContext('2d'), canvas.width, canvas.height], ctx = _ref[0], settings.screen.width = _ref[1], settings.screen.height = _ref[2];
+  commands = new Commands(settings);
+  browser.bindCommands(commands);
   state = new State(settings);
-  state.shipState.x = settings.screen.width - 200;
-  state.shipState.y = settings.screen.height - 200;
-  document.onkeydown = state.keyState.keyDownHandler;
-  document.onkeyup = state.keyState.keyUpHandler;
+  state.shipState.positionX = settings.screen.width / 2;
+  state.shipState.positionY = 20;
   i = 0;
   gameLoopId = setInterval(function() {
-    state.update();
+    state.update(commands);
     renderer(ctx, settings, state);
     i = i + 1;
-    if (i === 1000) {
-      clearInterval(gameLoopId);
-    }
   }, 1000 / settings.screen.framesPerSecond);
 });

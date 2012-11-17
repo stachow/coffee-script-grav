@@ -9,46 +9,31 @@ window.log = ->
 
 
 
-require ['settings','renderer','State'], 
-		( settings,  renderer,  State) ->
+require ['settings','renderer','State','Commands','browser'], 
+		( settings,  renderer,  State,  Commands,  browser ) ->
 			
-			canvas = document.getElementById 'gameScreen'
-			# Augment settings from the canvas
-			[settings.screen.width, settings.screen.height] = [canvas.width, canvas.height]
-			ctx = canvas.getContext '2d'
+			canvas = browser.getCanvas 'gameScreen'
+			[ctx, settings.screen.width, settings.screen.height] = [canvas.getContext('2d'), 
+																	canvas.width, canvas.height]
+
+			commands = new Commands	settings
+			browser.bindCommands commands			
 
 			state = new State settings
-			state.shipState.x = settings.screen.width - 200
-			state.shipState.y = settings.screen.height - 200
-
-			document.onkeydown = state.keyState.keyDownHandler	
-			document.onkeyup = state.keyState.keyUpHandler	
-			#
-			#
-			#
-			#
-			#
-			#
-			# should inject key state in to update, rather than have it inside 
-			# will help with cancelling also
-			#
-			#
-			#
-			#
-			#
-			#
-			#
+			state.shipState.positionX = settings.screen.width / 2
+			state.shipState.positionY = 20
+			
 			# game loop
 			i = 0
 			gameLoopId = setInterval ->
-							state.update()
+		
+							state.update commands
 							renderer ctx, settings, state
 							i = i + 1
-							clearInterval gameLoopId if i is 1000
 							return
+
 			, 1000 / settings.screen.framesPerSecond
 		
-
 			return			
 
 
