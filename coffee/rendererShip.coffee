@@ -6,9 +6,6 @@ define ['shipShape'],
 				
 				ctx.strokeStyle = ctx.fillStyle = settings.ship.color
 				
-				# Centre of Gravity dot
-				ctx.fillRect -1, -1, 2, 2
-
 				rotateFactor = state.shipState.direction 
 			 
 				ctx.rotate  rotateFactor
@@ -21,6 +18,8 @@ define ['shipShape'],
 				ctx.lineTo point[0], point[1] for point in shipShape.points
 				ctx.lineTo nose[0], nose[1]
 				ctx.stroke()
+				ctx.fillStyle = settings.ship.fillColor
+				ctx.fill()
 
 				# Draw engine
 				if state.shipState.thrusting
@@ -32,6 +31,12 @@ define ['shipShape'],
 
 
 				ctx.rotate  -1 * rotateFactor
+
+
+				# Centre of Gravity dot
+				ctx.fillStyle = settings.ship.color
+				ctx.fillRect -1, -1, 2, 2
+
 
 				ctx.translate 0, 0
 				ctx.restore()

@@ -1,5 +1,4 @@
-define ['physics'], 
-	(physics)->
+define ->
 		class ShipState
 			constructor: (@settings) ->
 				@velocityX = 0
@@ -16,30 +15,25 @@ define ['physics'],
 					radFactor = Math.PI/180
 					if @direction >= radFactor 	then @direction -=radFactor
 					if @direction <    0 		then @direction +=radFactor
+				return	
 
 			thrustOn: (bool) =>
 				@thrusting = bool
+				return
 
 			updatePosition: ->
-				self = @
-				calc = (def)->
-					currentForce = def[2]
-					
-					if @thrusting
-						currentForce -= self.settings.ship.thrustRatio * def[1] self.direction 
-					
-					currentAcceleration = currentForce * self.mass
-					self['velocity' + def[0]] += currentAcceleration
-					self['position' + def[0]] += currentAcceleration
+				currentForceY = @settings.game.gravity  
+				currentForceY += -1 * Math.cos(@direction) * @settings.ship.thrustRatio if @thrusting
+				currentForceY += -1 * @velocityY * @settings.game.viscosity
+				currentAccelerationY = currentForceY * @mass
+				@velocityY += currentAccelerationY
+				@positionY += @velocityY
 
-				directionDefs = [
-					['X', Math.sin, 0]  
-					['Y', Math.cos, @settings.game.gravity]
-				]
+				currentForceX = 0	
+				currentForceX += Math.sin(@direction) * @settings.ship.thrustRatio if @thrusting
+				currentForceX += -1 * @velocityX * @settings.game.viscosity
+				currentAccelerationX = currentForceX * @mass
 				
-				calc def for def in directionDefs
-
-				# currentForceY = @settings.game.gravity - if @thrusting then @settings.ship.thrustRatio else 0 
-				# currentAccelerationY = currentForceY * @mass
-				# @velocityY += currentAccelerationY
-				# @positionY += @velocityY
+				@velocityX += currentAccelerationX
+				@positionX += @velocityX
+				return

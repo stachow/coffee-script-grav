@@ -6,7 +6,6 @@ define(['shipShape'], function(shipShape) {
     ctx.save();
     ctx.translate(state.shipState.positionX, state.shipState.positionY);
     ctx.strokeStyle = ctx.fillStyle = settings.ship.color;
-    ctx.fillRect(-1, -1, 2, 2);
     rotateFactor = state.shipState.direction;
     ctx.rotate(rotateFactor);
     nose = shipShape.points[0];
@@ -19,6 +18,8 @@ define(['shipShape'], function(shipShape) {
     }
     ctx.lineTo(nose[0], nose[1]);
     ctx.stroke();
+    ctx.fillStyle = settings.ship.fillColor;
+    ctx.fill();
     if (state.shipState.thrusting) {
       ctx.strokeStyle = settings.ship.engineColor;
       ctx.lineWidth = 2;
@@ -31,6 +32,8 @@ define(['shipShape'], function(shipShape) {
       ctx.stroke();
     }
     ctx.rotate(-1 * rotateFactor);
+    ctx.fillStyle = settings.ship.color;
+    ctx.fillRect(-1, -1, 2, 2);
     ctx.translate(0, 0);
     ctx.restore();
   };
