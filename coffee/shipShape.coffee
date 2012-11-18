@@ -15,3 +15,5 @@ define
 				[  0,   6]
 				[ -9,   10]
 			]
+			
+	exhaustDistance: 7

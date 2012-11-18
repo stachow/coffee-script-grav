@@ -3,7 +3,7 @@
 define(['rendererBackground', 'rendererShip', 'rendererExhaust'], function(rendererBackground, rendererShip, rendererExhaust) {
   return function(ctx, settings, state) {
     rendererBackground(ctx, settings);
-    rendererShip(ctx, settings, state);
     rendererExhaust(ctx, settings, state);
+    rendererShip(ctx, settings, state);
   };
 });

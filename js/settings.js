@@ -3,7 +3,8 @@
 define({
   background: {
     color: '#fafafa',
-    gridColor: '#f5f5f5'
+    gridColor: '#f5f5f5',
+    borderColor: '#ff0000'
   },
   ship: {
     color: '#555555',
@@ -12,9 +13,9 @@ define({
     thrustRatio: 0.4,
     turnRatio: 0.1,
     exhaust: {
-      frequencyFactor: 10,
-      fadeFactor: 10,
-      color: '#555555'
+      frequencyFactor: 4,
+      disappearFactor: 25,
+      color: '#eeeeee'
     }
   },
   screen: {

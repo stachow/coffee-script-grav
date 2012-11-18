@@ -10,6 +10,6 @@ define ['shipState', 'ExhaustState'],
 				@shipState.thrustOn 		commands.currentThrustCommand()
 				@shipState.updatePosition()
 
-				@exhaust.update()
+				@exhaust.update(@shipState)
 
 				return

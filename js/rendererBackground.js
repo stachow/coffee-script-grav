@@ -21,5 +21,18 @@ define(function() {
       ctx.lineTo(w, i);
       ctx.stroke();
     }
+    ctx.strokeStyle = settings.background.borderColor;
+    h = settings.game.height;
+    w = settings.game.width;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, h);
+    ctx.stroke();
+    ctx.lineTo(w, h);
+    ctx.stroke();
+    ctx.lineTo(w, 0);
+    ctx.stroke();
+    ctx.lineTo(0, 0);
+    ctx.stroke();
   };
 });

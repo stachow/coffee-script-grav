@@ -24,13 +24,9 @@ require ['settings','renderer','State','Commands','browser'],
 			state.shipState.positionY = 20
 			
 			# game loop
-			i = 0
 			gameLoopId = setInterval ->
-		
 							state.update commands
 							renderer ctx, settings, state
-							i = i + 1
-							return
 
 			, 1000 / settings.screen.framesPerSecond
 		

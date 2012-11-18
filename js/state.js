@@ -13,7 +13,7 @@ define(['shipState', 'ExhaustState'], function(ShipState, ExhaustState) {
       this.shipState.changeDirection(commands.currentTurnCommand());
       this.shipState.thrustOn(commands.currentThrustCommand());
       this.shipState.updatePosition();
-      this.exhaust.update();
+      this.exhaust.update(this.shipState);
     };
 
     return State;

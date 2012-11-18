@@ -3,5 +3,6 @@
 define({
   points: [[0, -11], [10, 9], [0, 5], [-10, 9]],
   centreOfGravity: [0, 0],
-  enginePoints: [[9, 10], [0, 6], [-9, 10]]
+  enginePoints: [[9, 10], [0, 6], [-9, 10]],
+  exhaustDistance: 7
 });

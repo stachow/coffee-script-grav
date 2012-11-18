@@ -9,7 +9,7 @@ window.log = function() {
 };
 
 require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(settings, renderer, State, Commands, browser) {
-  var canvas, commands, ctx, gameLoopId, i, state, _ref;
+  var canvas, commands, ctx, gameLoopId, state, _ref;
   canvas = browser.getCanvas('gameScreen');
   _ref = [canvas.getContext('2d'), canvas.width, canvas.height], ctx = _ref[0], settings.screen.width = _ref[1], settings.screen.height = _ref[2];
   commands = new Commands(settings);
@@ -17,10 +17,8 @@ require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(setti
   state = new State(settings);
   state.shipState.positionX = settings.screen.width / 2;
   state.shipState.positionY = 20;
-  i = 0;
   gameLoopId = setInterval(function() {
     state.update(commands);
-    renderer(ctx, settings, state);
-    i = i + 1;
+    return renderer(ctx, settings, state);
   }, 1000 / settings.screen.framesPerSecond);
 });
