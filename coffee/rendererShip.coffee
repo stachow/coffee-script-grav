@@ -2,13 +2,11 @@ define ['shipShape'],
 		(shipShape) -> 
 			(ctx, settings, state) ->
 				ctx.save()
+
 				ctx.translate state.shipState.positionX, state.shipState.positionY
-				
+				ctx.rotate    state.shipState.direction 
 				ctx.strokeStyle = ctx.fillStyle = settings.ship.color
 				
-				rotateFactor = state.shipState.direction 
-			 
-				ctx.rotate  rotateFactor
 				# The nose
 				nose = shipShape.points[0]
 				
@@ -30,15 +28,11 @@ define ['shipShape'],
 					ctx.stroke()					
 
 
-				ctx.rotate  -1 * rotateFactor
-
-
 				# Centre of Gravity dot
 				ctx.fillStyle = settings.ship.color
 				ctx.fillRect -1, -1, 2, 2
 
 
-				ctx.translate 0, 0
 				ctx.restore()
 				return
 					

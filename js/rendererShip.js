@@ -2,12 +2,11 @@
 
 define(['shipShape'], function(shipShape) {
   return function(ctx, settings, state) {
-    var nose, point, rotateFactor, _i, _j, _len, _len1, _ref, _ref1;
+    var nose, point, _i, _j, _len, _len1, _ref, _ref1;
     ctx.save();
     ctx.translate(state.shipState.positionX, state.shipState.positionY);
+    ctx.rotate(state.shipState.direction);
     ctx.strokeStyle = ctx.fillStyle = settings.ship.color;
-    rotateFactor = state.shipState.direction;
-    ctx.rotate(rotateFactor);
     nose = shipShape.points[0];
     ctx.moveTo(nose[0], nose[1]);
     ctx.beginPath();
@@ -31,10 +30,8 @@ define(['shipShape'], function(shipShape) {
       }
       ctx.stroke();
     }
-    ctx.rotate(-1 * rotateFactor);
     ctx.fillStyle = settings.ship.color;
     ctx.fillRect(-1, -1, 2, 2);
-    ctx.translate(0, 0);
     ctx.restore();
   };
 });

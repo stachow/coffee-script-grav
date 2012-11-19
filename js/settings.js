@@ -11,21 +11,22 @@ define({
     fillColor: '#fafafa',
     engineColor: '#ff6600',
     thrustRatio: 0.4,
-    turnRatio: 0.1,
+    turnRatio: 0.11,
     exhaust: {
-      frequencyFactor: 4,
+      frequencyFactor: 2,
       disappearFactor: 25,
-      color: '#eeeeee'
+      color: '#dddddd'
     }
   },
   screen: {
     height: 0,
     width: 0,
-    framesPerSecond: 30
+    framesPerSecond: 30,
+    panWhenWithin: 200
   },
   game: {
-    height: 5000,
-    width: 5000,
+    height: 1000,
+    width: 1000,
     gravity: 0.15,
     viscosity: 0.005,
     keyCommandMap: {

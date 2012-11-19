@@ -21,7 +21,10 @@ require ['settings','renderer','State','Commands','browser'],
 
 			state = new State settings
 			state.shipState.positionX = settings.screen.width / 2
-			state.shipState.positionY = 20
+			state.shipState.positionY = 200
+			state.screenState.positionX = 0
+			state.screenState.positionY = 0
+			
 			
 			# game loop
 			gameLoopId = setInterval ->

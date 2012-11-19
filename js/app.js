@@ -16,7 +16,9 @@ require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(setti
   browser.bindCommands(commands);
   state = new State(settings);
   state.shipState.positionX = settings.screen.width / 2;
-  state.shipState.positionY = 20;
+  state.shipState.positionY = 200;
+  state.screenState.positionX = 0;
+  state.screenState.positionY = 0;
   gameLoopId = setInterval(function() {
     state.update(commands);
     return renderer(ctx, settings, state);

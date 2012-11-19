@@ -2,8 +2,10 @@
 
 define(['rendererBackground', 'rendererShip', 'rendererExhaust'], function(rendererBackground, rendererShip, rendererExhaust) {
   return function(ctx, settings, state) {
-    rendererBackground(ctx, settings);
+    ctx.translate(0, 0);
+    rendererBackground(ctx, settings, state);
     rendererExhaust(ctx, settings, state);
     rendererShip(ctx, settings, state);
+    ctx.translate(-state.screenState.nextShiftX, -state.screenState.nextShiftY);
   };
 });

@@ -1,11 +1,12 @@
 define ->
-		(ctx, settings) -> 
-			h = settings.screen.height
-			w = settings.screen.width
+		(ctx, settings, state) -> 
+			ctx.save()
+			h = settings.game.height
+			w = settings.game.width
 			ctx.clearRect 0, 0, w, h
 
 			ctx.fillStyle = settings.background.color
-			ctx.fillRect 0, 0, settings.screen.width, settings.screen.height
+			ctx.fillRect 0, 0, w, h
 
 			ctx.strokeStyle = settings.background.gridColor
 			
@@ -34,4 +35,7 @@ define ->
 			ctx.stroke()
 			ctx.lineTo 0, 0	
 			ctx.stroke()
+			
+			
+			ctx.restore()
 			return
