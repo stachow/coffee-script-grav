@@ -6,9 +6,6 @@ window.log = ->
 	console.log(Array.prototype.slice.call arguments) if this.console
 	return
 
-
-
-
 require ['settings','renderer','State','Commands','browser'], 
 		( settings,  renderer,  State,  Commands,  browser ) ->
 			

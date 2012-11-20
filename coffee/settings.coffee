@@ -19,11 +19,11 @@ define
 		height: 				0 # 700
 		width: 					0 # 1000
 		framesPerSecond: 		30
-		panWhenWithin:			200
+		panWhenWithin:			300
 	
 	game:
 		height:					1000
-		width:					1000	
+		width:					1500	
 		gravity:				0.15
 		viscosity:				0.005
 		keyCommandMap:

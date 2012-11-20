@@ -18,7 +18,7 @@ define(function() {
       this.nextShiftY = 0;
       strayRightThreshold = this.positionX + this.settings.screen.width - this.settings.screen.panWhenWithin;
       strayRightAmount = shipState.positionX - strayRightThreshold;
-      if (strayRightAmount > 0 && this.positionX < this.settings.game.width) {
+      if (strayRightAmount > 0 && this.positionX < (this.settings.game.width - this.settings.screen.width)) {
         this.nextShiftX = strayRightAmount;
         this.positionX += this.nextShiftX;
         log('Strayed Right', this.positionX);
@@ -33,7 +33,7 @@ define(function() {
       }
       strayBottomThreshold = this.positionY + this.settings.screen.height - this.settings.screen.panWhenWithin;
       strayBottomAmount = shipState.positionY - strayBottomThreshold;
-      if (strayBottomAmount > 0 && this.positionY < this.settings.game.height) {
+      if (strayBottomAmount > 0 && this.positionY < (this.settings.game.height - this.settings.screen.height)) {
         this.nextShiftY = strayBottomAmount;
         this.positionY += this.nextShiftY;
         return log('Strayed Bottom', this.positionY);

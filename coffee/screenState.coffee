@@ -12,7 +12,7 @@ define ->
 
 			strayRightThreshold = @positionX + @settings.screen.width - @settings.screen.panWhenWithin
 			strayRightAmount = shipState.positionX - strayRightThreshold
-			if strayRightAmount > 0 and @positionX < @settings.game.width
+			if strayRightAmount > 0 and @positionX < (@settings.game.width - @settings.screen.width)
 				@nextShiftX = strayRightAmount
 				@positionX += @nextShiftX 
 				log 'Strayed Right', @positionX
@@ -26,7 +26,7 @@ define ->
 
 			strayBottomThreshold = @positionY + @settings.screen.height - @settings.screen.panWhenWithin
 			strayBottomAmount = shipState.positionY - strayBottomThreshold
-			if strayBottomAmount > 0 and @positionY < @settings.game.height
+			if strayBottomAmount > 0 and @positionY < (@settings.game.height - @settings.screen.height)
 				@nextShiftY = strayBottomAmount
 				@positionY += @nextShiftY 
 				log 'Strayed Bottom', @positionY

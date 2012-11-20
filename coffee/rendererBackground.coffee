@@ -26,14 +26,14 @@ define ->
 			h = settings.game.height
 			w = settings.game.width
 			ctx.beginPath()
-			ctx.moveTo 0, 0
-			ctx.lineTo 0, h	
+			ctx.moveTo 0.5, 0.5
+			ctx.lineTo 0.5, h	
 			ctx.stroke()
 			ctx.lineTo w, h
 			ctx.stroke()
-			ctx.lineTo w, 0
+			ctx.lineTo w, 0.5
 			ctx.stroke()
-			ctx.lineTo 0, 0	
+			ctx.lineTo 0.5, 0.5	
 			ctx.stroke()
 			
 			
