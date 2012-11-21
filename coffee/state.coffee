@@ -1,10 +1,11 @@
-define ['shipState', 'ExhaustState', 'ScreenState'], 
-	(ShipState, ExhaustState, ScreenState) ->
+define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState'], 
+	(ShipState, ExhaustState, ScreenState, BaseState) ->
 		class State
 			constructor: (settings) ->
 				@shipState 	= new ShipState 	settings
 				@exhaust 	= new ExhaustState	settings
 				@screenState= new ScreenState 	settings
+				@baseState	= new BaseState 	settings
 
 			update: (commands)->
 				@shipState.changeDirection 	commands.currentTurnCommand()

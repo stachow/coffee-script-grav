@@ -13,6 +13,8 @@ define(function() {
 
       this.keyDownHandler = __bind(this.keyDownHandler, this);
 
+      this.quitCommand = __bind(this.quitCommand, this);
+
       this.currentThrustCommand = __bind(this.currentThrustCommand, this);
 
       this.currentTurnCommand = __bind(this.currentTurnCommand, this);
@@ -20,7 +22,8 @@ define(function() {
       this.commands = {
         left: false,
         right: false,
-        thrust: false
+        thrust: false,
+        stop: false
       };
     }
 
@@ -36,6 +39,10 @@ define(function() {
 
     Commands.prototype.currentThrustCommand = function() {
       return this.commands.thrust;
+    };
+
+    Commands.prototype.quitCommand = function() {
+      return this.commands.stop;
     };
 
     Commands.prototype.keyDownHandler = function(e) {

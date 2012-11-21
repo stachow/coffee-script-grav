@@ -1,20 +1,20 @@
-define ['shipShape'], 
-		(shipShape) -> 
+define ['shipShape', 'rotationTranslator'], 
+		(shipShape, rotationTranslator) -> 
 			(ctx, settings, state) ->
 				ctx.save()
 
 				ctx.translate state.shipState.positionX, state.shipState.positionY
-				ctx.rotate    state.shipState.direction 
+				#ctx.rotate    state.shipState.direction 
 				ctx.strokeStyle = ctx.fillStyle = settings.ship.color
-				
-				# The nose
-				nose = shipShape.points[0]
+
+				pointSet = state.shipState.rotatedPoints()
 				
 				# Draw ship
-				ctx.moveTo nose[0], nose[1]
+				ctx.moveTo pointSet[0][0], pointSet[0][1]
 				ctx.beginPath()
-				ctx.lineTo point[0], point[1] for point in shipShape.points
-				ctx.lineTo nose[0], nose[1]
+				#log point[0] for point in pointSet
+				ctx.lineTo point[0], point[1] for point in pointSet
+				ctx.closePath()
 				ctx.stroke()
 				ctx.fillStyle = settings.ship.fillColor
 				ctx.fill()
@@ -24,13 +24,24 @@ define ['shipShape'],
 					ctx.strokeStyle = settings.ship.engineColor
 					ctx.lineWidth = 2
 					ctx.beginPath()
-					ctx.lineTo point[0], point[1] for point in shipShape.enginePoints
+					ctx.lineTo point[0], point[1] for point in state.shipState.engineRotatedPoints()
 					ctx.stroke()					
 
 
 				# Centre of Gravity dot
 				ctx.fillStyle = settings.ship.color
 				ctx.fillRect -1, -1, 2, 2
+
+
+
+				# Draw external box
+				externalPoints = state.shipState.externalBoxPoints()
+				log externalPoints
+				ctx.moveTo externalPoints[0][0], externalPoints[0][1]
+				ctx.beginPath()
+				ctx.lineTo point[0], point[1] for point in externalPoints
+				ctx.lineTo externalPoints[0][0], externalPoints[0][1]
+				ctx.stroke()
 
 
 				ctx.restore()

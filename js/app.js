@@ -19,7 +19,12 @@ require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(setti
   state.shipState.positionY = 200;
   state.screenState.positionX = 0;
   state.screenState.positionY = 0;
+  state.baseState.positionX = settings.screen.width / 2;
+  state.baseState.positionY = 400;
   gameLoopId = setInterval(function() {
+    if (commands.quitCommand()) {
+      clearInterval(gameLoopId);
+    }
     state.update(commands);
     return renderer(ctx, settings, state);
   }, 1000 / settings.screen.framesPerSecond);

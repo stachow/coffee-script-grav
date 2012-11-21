@@ -5,6 +5,7 @@ define ->
 					left: 	false
 					right:	false
 					thrust: false
+					stop:	false
 
 			currentTurnCommand: =>
 				return @settings.ship.turnRatio   		if @commands.right and not @commands.left
@@ -12,7 +13,10 @@ define ->
 				return 0 
 		
 			currentThrustCommand: =>
-				return @commands.thrust	
+				return @commands.thrust
+
+			quitCommand: =>
+				return @commands.stop
 
 			keyDownHandler: (e) => @_generalHandler(e, true)
 

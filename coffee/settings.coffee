@@ -33,5 +33,7 @@ define
 								67: 'right'
 								38: 'thrust'
 								83: 'thrust'
-				
+								19: 'stop'
+	base:
+		color:					'red'			
 	

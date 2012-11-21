@@ -21,10 +21,12 @@ require ['settings','renderer','State','Commands','browser'],
 			state.shipState.positionY = 200
 			state.screenState.positionX = 0
 			state.screenState.positionY = 0
-			
+			state.baseState.positionX = settings.screen.width / 2
+			state.baseState.positionY = 400
 			
 			# game loop
 			gameLoopId = setInterval ->
+							clearInterval gameLoopId if commands.quitCommand()
 							state.update commands
 							renderer ctx, settings, state
 
