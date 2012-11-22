@@ -120,42 +120,10 @@
 	"buffers":
 	[
 		{
-			"file": "spec/physics.spec.coffee",
+			"file": "coffee/state.coffee",
 			"settings":
 			{
-				"buffer_size": 181,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "coffee/rotationTranslator.coffee",
-			"settings":
-			{
-				"buffer_size": 368,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "coffee/rendererShip.coffee",
-			"settings":
-			{
-				"buffer_size": 1342,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "coffee/shipState.coffee",
-			"settings":
-			{
-				"buffer_size": 1894,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "coffee/settings.coffee",
-			"settings":
-			{
-				"buffer_size": 683,
+				"buffer_size": 775,
 				"line_ending": "Windows"
 			}
 		},
@@ -168,18 +136,18 @@
 			}
 		},
 		{
-			"file": "coffee/Commands.coffee",
+			"file": "coffee/collisionDetect.coffee",
 			"settings":
 			{
-				"buffer_size": 759,
+				"buffer_size": 616,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "coffee/state.coffee",
+			"file": "coffee/rendererShip.coffee",
 			"settings":
 			{
-				"buffer_size": 591,
+				"buffer_size": 1251,
 				"line_ending": "Windows"
 			}
 		},
@@ -187,15 +155,7 @@
 			"file": "coffee/BaseState.coffee",
 			"settings":
 			{
-				"buffer_size": 95,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "coffee/shipShape.coffee",
-			"settings":
-			{
-				"buffer_size": 354,
+				"buffer_size": 288,
 				"line_ending": "Windows"
 			}
 		},
@@ -208,18 +168,18 @@
 			}
 		},
 		{
-			"file": "coffee/rendererExhaust.coffee",
+			"file": "coffee/rendererBase.coffee",
 			"settings":
 			{
-				"buffer_size": 209,
+				"buffer_size": 456,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "coffee/rendererBase.coffee",
+			"file": "coffee/shipState.coffee",
 			"settings":
 			{
-				"buffer_size": 501,
+				"buffer_size": 1634,
 				"line_ending": "Windows"
 			}
 		},
@@ -232,10 +192,50 @@
 			}
 		},
 		{
+			"file": "coffee/screenState.coffee",
+			"settings":
+			{
+				"buffer_size": 1345,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "coffee/settings.coffee",
+			"settings":
+			{
+				"buffer_size": 708,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "coffee/rendererBackground.coffee",
+			"settings":
+			{
+				"buffer_size": 920,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/state.js",
+			"settings":
+			{
+				"buffer_size": 1001,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "js/rendererShip.js",
 			"settings":
 			{
-				"buffer_size": 1157,
+				"buffer_size": 1550,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/rendererBase.js",
+			"settings":
+			{
+				"buffer_size": 592,
 				"line_ending": "Unix"
 			}
 		},
@@ -243,7 +243,15 @@
 			"file": "js/shipState.js",
 			"settings":
 			{
-				"buffer_size": 2828,
+				"buffer_size": 3566,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/collisionDetect.js",
+			"settings":
+			{
+				"buffer_size": 974,
 				"line_ending": "Unix"
 			}
 		},
@@ -251,7 +259,7 @@
 			"file": "js/app.js",
 			"settings":
 			{
-				"buffer_size": 1071,
+				"buffer_size": 1172,
 				"line_ending": "Unix"
 			}
 		}
@@ -280,18 +288,28 @@
 	},
 	"file_history":
 	[
-		"/C/dev/grav/aws-server/repo/coffee/exhaustState.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/shipState.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/renderer.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/rendererBase.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/rendererExhaust.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/baseShape.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/shipShape.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/BaseState.coffee",
 		"/C/dev/grav/aws-server/repo/coffee/Commands.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/settings.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/rotationTranslator.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/collisionDetect.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/rendererShip.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/app.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/state.coffee",
+		"/C/dev/grav/aws-server/repo/spec/physics.spec.coffee",
+		"/C/dev/grav/aws-server/repo/coffee/exhaustState.coffee",
 		"/C/dev/grav/aws-server/repo/coffee/browser.coffee",
 		"/C/dev/grav/aws-server/repo/js/app.js",
 		"/C/dev/grav/aws-server/repo/js/rotationTranslator.js",
-		"/C/dev/grav/aws-server/repo/coffee/rotationTranslator.coffee",
-		"/C/dev/grav/aws-server/repo/spec/physics.spec.coffee",
-		"/C/dev/grav/aws-server/repo/coffee/rendererShip.coffee",
 		"/C/dev/grav/aws-server/repo/spec-js/physics.spec.js",
 		"/C/dev/grav/aws-server/repo/index.html",
 		"/C/dev/grav/aws-server/repo/SpecRunner.html",
-		"/C/dev/grav/aws-server/repo/coffee/app.coffee",
 		"/C/dev/grav/aws-server/repo/js/rendererShip.js",
 		"/C/dev/grav/aws-server/repo/tests.html",
 		"/C/dev/grav/aws-server/repo/js/shipState.js",
@@ -300,11 +318,7 @@
 		"/C/dev/grav/aws-server/repo/lib/SpecHelper.js",
 		"/C/dev/grav/aws-server/repo/lib/jasmine/SpecRunner.html",
 		"/C/dev/grav/aws-server/repo/coffee/rendererBackground.coffee",
-		"/C/dev/grav/aws-server/repo/coffee/settings.coffee",
 		"/C/dev/grav/aws-server/repo/coffee/screenState.coffee",
-		"/C/dev/grav/aws-server/repo/coffee/shipShape.coffee",
-		"/C/dev/grav/aws-server/repo/coffee/shipState.coffee",
-		"/C/dev/grav/aws-server/repo/coffee/renderer.coffee",
 		"/C/dev/grav/aws-server/repo/js/renderer.js",
 		"/C/dev/grav/aws-server/repo/js/settings.js",
 		"/C/dev/grav/aws-server/repo/js/shipShape.js",
@@ -312,9 +326,7 @@
 		"/C/dev/grav/aws-server/repo/js/stateKey.js",
 		"/C/dev/grav/aws-server/repo/js/rendererBackground.js",
 		"/C/dev/grav/aws-server/repo/js/exhaustState.js",
-		"/C/dev/grav/aws-server/repo/coffee/state.coffee",
 		"/C/dev/grav/aws-server/repo/grav.sublime-project",
-		"/C/dev/grav/aws-server/repo/coffee/rendererExhaust.coffee",
 		"/C/dev/grav/aws-server/repo/js/rendererExhaust.js",
 		"/C/dev/game-of-life/app.js",
 		"/C/dev/grav/aws-server/repo/coffee/stateKey.coffee",
@@ -393,9 +405,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"C:\\dev\\grav\\aws-server\\repo\\coffee"
 		]
 	},
 	"find_state":
@@ -403,6 +416,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"log",
+			"shipshape",
 			"thrustRatio",
 			"log",
 			"grant"
@@ -428,70 +443,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "spec/physics.spec.coffee",
+					"file": "coffee/state.coffee",
 					"settings":
 					{
-						"buffer_size": 181,
+						"buffer_size": 775,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								181,
-								181
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "coffee/rotationTranslator.coffee",
-					"settings":
-					{
-						"buffer_size": 368,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								368,
-								368
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "coffee/rendererShip.coffee",
-					"settings":
-					{
-						"buffer_size": 1342,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1306,
-								987
+								626,
+								626
 							]
 						],
 						"settings":
@@ -506,19 +469,72 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "coffee/shipState.coffee",
+					"buffer": 1,
+					"file": "coffee/app.coffee",
 					"settings":
 					{
-						"buffer_size": 1894,
+						"buffer_size": 1210,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								413,
-								413
+								1106,
+								1106
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "coffee/collisionDetect.coffee",
+					"settings":
+					{
+						"buffer_size": 616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								330,
+								330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "coffee/rendererShip.coffee",
+					"settings":
+					{
+						"buffer_size": 1251,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								999,
+								999
 							]
 						],
 						"settings":
@@ -534,24 +550,23 @@
 				},
 				{
 					"buffer": 4,
-					"file": "coffee/settings.coffee",
+					"file": "coffee/BaseState.coffee",
 					"settings":
 					{
-						"buffer_size": 683,
+						"buffer_size": 288,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								678,
-								678
+								288,
+								288
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -561,24 +576,23 @@
 				},
 				{
 					"buffer": 5,
-					"file": "coffee/app.coffee",
+					"file": "coffee/baseShape.coffee",
 					"settings":
 					{
-						"buffer_size": 1210,
+						"buffer_size": 229,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								416,
-								416
+								229,
+								229
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -588,18 +602,18 @@
 				},
 				{
 					"buffer": 6,
-					"file": "coffee/Commands.coffee",
+					"file": "coffee/rendererBase.coffee",
 					"settings":
 					{
-						"buffer_size": 759,
+						"buffer_size": 456,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								419,
-								430
+								456,
+								456
 							]
 						],
 						"settings":
@@ -615,18 +629,18 @@
 				},
 				{
 					"buffer": 7,
-					"file": "coffee/state.coffee",
+					"file": "coffee/shipState.coffee",
 					"settings":
 					{
-						"buffer_size": 591,
+						"buffer_size": 1634,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								315,
-								315
+								1442,
+								1459
 							]
 						],
 						"settings":
@@ -642,139 +656,6 @@
 				},
 				{
 					"buffer": 8,
-					"file": "coffee/BaseState.coffee",
-					"settings":
-					{
-						"buffer_size": 95,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								45,
-								53
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "coffee/shipShape.coffee",
-					"settings":
-					{
-						"buffer_size": 354,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								354,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "coffee/baseShape.coffee",
-					"settings":
-					{
-						"buffer_size": 229,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								221,
-								221
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "coffee/rendererExhaust.coffee",
-					"settings":
-					{
-						"buffer_size": 209,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								209,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "coffee/rendererBase.coffee",
-					"settings":
-					{
-						"buffer_size": 501,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								268,
-								268
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
 					"file": "coffee/renderer.coffee",
 					"settings":
 					{
@@ -798,27 +679,164 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 14,
-					"file": "js/rendererShip.js",
+					"buffer": 9,
+					"file": "coffee/screenState.coffee",
 					"settings":
 					{
-						"buffer_size": 1157,
+						"buffer_size": 1345,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								159,
+								159
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "coffee/settings.coffee",
+					"settings":
+					{
+						"buffer_size": 708,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "coffee/rendererBackground.coffee",
+					"settings":
+					{
+						"buffer_size": 920,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								692,
+								692
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 12,
+					"file": "js/state.js",
+					"settings":
+					{
+						"buffer_size": 1001,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								969,
+								969
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "js/rendererShip.js",
+					"settings":
+					{
+						"buffer_size": 1550,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								633,
+								633
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "js/rendererBase.js",
+					"settings":
+					{
+						"buffer_size": 592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								553,
+								553
 							]
 						],
 						"settings":
@@ -838,15 +856,15 @@
 					"file": "js/shipState.js",
 					"settings":
 					{
-						"buffer_size": 2828,
+						"buffer_size": 3566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2761,
-								2761
+								2262,
+								2262
 							]
 						],
 						"settings":
@@ -863,10 +881,36 @@
 				},
 				{
 					"buffer": 16,
+					"file": "js/collisionDetect.js",
+					"settings":
+					{
+						"buffer_size": 974,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								974,
+								974
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
 					"file": "js/app.js",
 					"settings":
 					{
-						"buffer_size": 1071,
+						"buffer_size": 1172,
 						"regions":
 						{
 						},
@@ -920,7 +964,7 @@
 		"cols":
 		[
 			0.0,
-			0.871390310784,
+			0.594739291805,
 			1.0
 		],
 		"rows":
@@ -955,6 +999,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 215.0,
+	"side_bar_width": 219.0,
 	"status_bar_visible": true
 }

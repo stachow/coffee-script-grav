@@ -23,6 +23,9 @@ define ->
 				ctx.stroke()
 
 			ctx.strokeStyle = settings.background.borderColor
+			ctx.strokeStyle = settings.background.borderColorAlert if state.collided()
+
+
 			h = settings.game.height
 			w = settings.game.width
 			ctx.beginPath()

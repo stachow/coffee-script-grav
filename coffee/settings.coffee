@@ -3,7 +3,8 @@ define
 	background:
 		color: 					'#fafafa'
 		gridColor:				'#f5f5f5'
-		borderColor:			'#ff0000'
+		borderColor:			'red'
+		borderColorAlert:		'green'
 	ship:
 		color: 					'#555555'
 		fillColor:				'#fafafa'

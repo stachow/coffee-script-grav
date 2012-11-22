@@ -1,5 +1,5 @@
-define ['shipShape', 'rotationTranslator'], 
-		(shipShape, rotationTranslator) -> 
+define ['shipShape', 'rotationTranslator', 'collisionDetect'], 
+		(shipShape, rotationTranslator, collisionDetect) -> 
 			class ShipState
 				constructor: (@settings) ->
 					@velocityX = 0
@@ -39,22 +39,11 @@ define ['shipShape', 'rotationTranslator'],
 					@positionX += @velocityX
 					return
 
-				rotatedPoints: =>
-						rotationTranslator point[0], point[1], @direction for point in shipShape.points
+				livePoints: =>
+					rotationTranslator point[0], point[1], @direction for point in shipShape.points
 
 				externalBoxPoints: =>
-					minX = maxX = minY = maxY = 0
-					for point in @rotatedPoints()
-						minX = point[0] if point[0] < minX
-						maxX = point[0] if point[0] > maxX
-						minY = point[1] if point[1] < minY
-						maxY = point[1] if point[1] > maxY
-					return [
-								[minX, minY]
-								[minX, maxY]
-								[maxX, maxY]
-								[maxX, minY]	
-							]
+					collisionDetect.externalLimits @livePoints()
 
 				engineRotatedPoints: =>
 						rotationTranslator point[0], point[1], @direction for point in shipShape.enginePoints

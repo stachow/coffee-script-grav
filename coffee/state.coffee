@@ -1,5 +1,5 @@
-define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState'], 
-	(ShipState, ExhaustState, ScreenState, BaseState) ->
+define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState', 'collisionDetect'], 
+	(ShipState, ExhaustState, ScreenState, BaseState, collisionDetect) ->
 		class State
 			constructor: (settings) ->
 				@shipState 	= new ShipState 	settings
@@ -12,7 +12,10 @@ define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState'],
 				@shipState.thrustOn 		commands.currentThrustCommand()
 				@shipState.updatePosition()
 				@exhaust.update(@shipState)
-
 				@screenState.update(@shipState)
-
 				return
+
+			collided: () ->
+				collisionDetect.rectanglesCollide @shipState.externalBoxPoints(), @baseState.externalBoxPoints()
+				# ok, landed, collided
+

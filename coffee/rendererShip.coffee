@@ -1,5 +1,5 @@
-define ['shipShape', 'rotationTranslator'], 
-		(shipShape, rotationTranslator) -> 
+define [ 'rotationTranslator'], 
+		(rotationTranslator) -> 
 			(ctx, settings, state) ->
 				ctx.save()
 
@@ -7,12 +7,11 @@ define ['shipShape', 'rotationTranslator'],
 				#ctx.rotate    state.shipState.direction 
 				ctx.strokeStyle = ctx.fillStyle = settings.ship.color
 
-				pointSet = state.shipState.rotatedPoints()
+				pointSet = state.shipState.livePoints()
 				
 				# Draw ship
 				ctx.moveTo pointSet[0][0], pointSet[0][1]
 				ctx.beginPath()
-				#log point[0] for point in pointSet
 				ctx.lineTo point[0], point[1] for point in pointSet
 				ctx.closePath()
 				ctx.stroke()
@@ -32,11 +31,8 @@ define ['shipShape', 'rotationTranslator'],
 				ctx.fillStyle = settings.ship.color
 				ctx.fillRect -1, -1, 2, 2
 
-
-
 				# Draw external box
 				externalPoints = state.shipState.externalBoxPoints()
-				log externalPoints
 				ctx.moveTo externalPoints[0][0], externalPoints[0][1]
 				ctx.beginPath()
 				ctx.lineTo point[0], point[1] for point in externalPoints

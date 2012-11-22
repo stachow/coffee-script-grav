@@ -21,29 +21,25 @@ define(function() {
       if (strayRightAmount > 0 && this.positionX < (this.settings.game.width - this.settings.screen.width)) {
         this.nextShiftX = strayRightAmount;
         this.positionX += this.nextShiftX;
-        log('Strayed Right', this.positionX);
       } else {
         strayLeftThreshold = this.positionX + this.settings.screen.panWhenWithin;
         strayLeftAmount = strayLeftThreshold - shipState.positionX;
         if (strayLeftAmount > 0 && this.positionX > 0) {
           this.nextShiftX = -strayLeftAmount;
           this.positionX += this.nextShiftX;
-          log('Strayed Left', this.positionX);
         }
       }
       strayBottomThreshold = this.positionY + this.settings.screen.height - this.settings.screen.panWhenWithin;
       strayBottomAmount = shipState.positionY - strayBottomThreshold;
       if (strayBottomAmount > 0 && this.positionY < (this.settings.game.height - this.settings.screen.height)) {
         this.nextShiftY = strayBottomAmount;
-        this.positionY += this.nextShiftY;
-        return log('Strayed Bottom', this.positionY);
+        return this.positionY += this.nextShiftY;
       } else {
         strayTopThreshold = this.positionY + this.settings.screen.panWhenWithin;
         strayTopAmount = strayTopThreshold - shipState.positionY;
         if (strayTopAmount > 0 && this.positionY > 0) {
           this.nextShiftY = -strayTopAmount;
-          this.positionY += this.nextShiftY;
-          return log('Strayed Top', this.positionY);
+          return this.positionY += this.nextShiftY;
         }
       }
     };

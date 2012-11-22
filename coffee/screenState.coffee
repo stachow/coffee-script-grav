@@ -15,25 +15,21 @@ define ->
 			if strayRightAmount > 0 and @positionX < (@settings.game.width - @settings.screen.width)
 				@nextShiftX = strayRightAmount
 				@positionX += @nextShiftX 
-				log 'Strayed Right', @positionX
 			else	
 				strayLeftThreshold = @positionX + @settings.screen.panWhenWithin
 				strayLeftAmount = strayLeftThreshold - shipState.positionX
 				if strayLeftAmount > 0 and @positionX > 0
 					@nextShiftX = -strayLeftAmount
 					@positionX += @nextShiftX 
-					log 'Strayed Left', @positionX
 
 			strayBottomThreshold = @positionY + @settings.screen.height - @settings.screen.panWhenWithin
 			strayBottomAmount = shipState.positionY - strayBottomThreshold
 			if strayBottomAmount > 0 and @positionY < (@settings.game.height - @settings.screen.height)
 				@nextShiftY = strayBottomAmount
 				@positionY += @nextShiftY 
-				log 'Strayed Bottom', @positionY
 			else	
 				strayTopThreshold = @positionY + @settings.screen.panWhenWithin
 				strayTopAmount = strayTopThreshold - shipState.positionY
 				if strayTopAmount > 0 and @positionY > 0
 					@nextShiftY = -strayTopAmount
 					@positionY += @nextShiftY 
-					log 'Strayed Top', @positionY

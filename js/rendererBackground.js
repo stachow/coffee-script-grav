@@ -23,6 +23,9 @@ define(function() {
       ctx.stroke();
     }
     ctx.strokeStyle = settings.background.borderColor;
+    if (state.collided()) {
+      ctx.strokeStyle = settings.background.borderColorAlert;
+    }
     h = settings.game.height;
     w = settings.game.width;
     ctx.beginPath();
