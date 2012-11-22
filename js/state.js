@@ -19,8 +19,16 @@ define(['shipState', 'ExhaustState', 'ScreenState', 'BaseState', 'collisionDetec
       this.screenState.update(this.shipState);
     };
 
-    State.prototype.collided = function() {
-      return collisionDetect.rectanglesCollide(this.shipState.externalBoxPoints(), this.baseState.externalBoxPoints());
+    State.prototype.condition = function() {
+      var hitBase;
+      hitBase = collisionDetect.rectanglesCollide(this.shipState.externalBoxPoints(), this.shipState.position, this.baseState.externalBoxPoints(), this.baseState.position);
+      if (hitBase) {
+        if (collisionDetect.landedSafely(this.shipState, this.baseState)) {
+          return 'landed';
+        } else {
+          return 'crashed';
+        }
+      }
     };
 
     return State;

@@ -15,7 +15,12 @@ define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState', 'collisionDetec
 				@screenState.update(@shipState)
 				return
 
-			collided: () ->
-				collisionDetect.rectanglesCollide @shipState.externalBoxPoints(), @baseState.externalBoxPoints()
+			condition: () ->
+				hitBase = collisionDetect.rectanglesCollide	@shipState.externalBoxPoints(), 
+																	@shipState.position,
+																	@baseState.externalBoxPoints(),
+																	@baseState.position
+				if hitBase 
+					return if collisionDetect.landedSafely @shipState, @baseState then 'landed' else 'crashed' 
 				# ok, landed, collided
 

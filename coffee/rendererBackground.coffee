@@ -23,7 +23,7 @@ define ->
 				ctx.stroke()
 
 			ctx.strokeStyle = settings.background.borderColor
-			ctx.strokeStyle = settings.background.borderColorAlert if state.collided()
+			ctx.strokeStyle = settings.background.borderColorAlert if state.condition() == 'crashed'
 
 
 			h = settings.game.height

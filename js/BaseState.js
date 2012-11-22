@@ -11,8 +11,7 @@ define(['baseShape', 'collisionDetect'], function(baseShape, collisionDetect) {
 
       this.livePoints = __bind(this.livePoints, this);
 
-      this.positionX = 0;
-      this.positionY = 0;
+      this.position = [0, 0];
     }
 
     BaseState.prototype.livePoints = function() {

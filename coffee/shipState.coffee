@@ -1,21 +1,20 @@
-define ['shipShape', 'rotationTranslator', 'collisionDetect'], 
-		(shipShape, rotationTranslator, collisionDetect) -> 
+define ['shipShape', 'translator', 'collisionDetect'], 
+		(shipShape, translator, collisionDetect) -> 
 			class ShipState
 				constructor: (@settings) ->
-					@velocityX = 0
-					@velocityY = 0
+					@velocity = [0, 0]
 					@direction = 0 # nose direction in radians
-					@positionX = 0
-					@positionY = 0
+					@position = [0, 0]
 					@thrusting = false
 					@mass = 1 # this is not interesting at the moment
 
 				changeDirection: (delta) =>
 					if delta
 						@direction += delta
-						radFactor = Math.PI/180
+						radFactor = 2* Math.PI
 						if @direction >= radFactor 	then @direction -=radFactor
 						if @direction <    0 		then @direction +=radFactor
+						log @direction
 					return	
 
 				thrustOn: (bool) =>
@@ -25,25 +24,25 @@ define ['shipShape', 'rotationTranslator', 'collisionDetect'],
 				updatePosition: ->
 					currentForceY = @settings.game.gravity  
 					currentForceY += -1 * Math.cos(@direction) * @settings.ship.thrustRatio if @thrusting
-					currentForceY += -1 * @velocityY * @settings.game.viscosity
+					currentForceY += -1 * @velocity[1] * @settings.game.viscosity
 					currentAccelerationY = currentForceY * @mass
-					@velocityY += currentAccelerationY
-					@positionY += @velocityY
+					@velocity[1] += currentAccelerationY
+					@position[1] += @velocity[1]
 
 					currentForceX = 0	
 					currentForceX += Math.sin(@direction) * @settings.ship.thrustRatio if @thrusting
-					currentForceX += -1 * @velocityX * @settings.game.viscosity
+					currentForceX += -1 * @velocity[0] * @settings.game.viscosity
 					currentAccelerationX = currentForceX * @mass
 					
-					@velocityX += currentAccelerationX
-					@positionX += @velocityX
+					@velocity[0] += currentAccelerationX
+					@position[0] += @velocity[0]
 					return
 
 				livePoints: =>
-					rotationTranslator point[0], point[1], @direction for point in shipShape.points
+					translator.rotate point[0], point[1], @direction for point in shipShape.points
 
 				externalBoxPoints: =>
 					collisionDetect.externalLimits @livePoints()
 
 				engineRotatedPoints: =>
-						rotationTranslator point[0], point[1], @direction for point in shipShape.enginePoints
+					translator.rotate point[0], point[1], @direction for point in shipShape.enginePoints

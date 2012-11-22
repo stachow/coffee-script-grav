@@ -17,6 +17,11 @@ define({
       frequencyFactor: 2,
       disappearFactor: 25,
       color: '#dddddd'
+    },
+    landing: {
+      maxDownwardSpeed: 1,
+      maxSidewardSpeed: 0.2,
+      maxAngleFromVertical: Math.pi / 16
     }
   },
   screen: {
@@ -37,7 +42,7 @@ define({
       67: 'right',
       38: 'thrust',
       83: 'thrust',
-      19: 'stop'
+      27: 'stop'
     }
   },
   base: {

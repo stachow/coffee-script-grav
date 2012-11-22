@@ -4,10 +4,9 @@ define(function() {
   return function(ctx, settings, state) {
     var point, pointSet, _i, _len;
     ctx.save();
-    ctx.translate(state.baseState.positionX, state.baseState.positionY);
+    ctx.translate(state.baseState.position[0], state.baseState.position[1]);
     ctx.fillStyle = settings.base.color;
     pointSet = state.baseState.livePoints();
-    log(pointSet);
     ctx.beginPath();
     ctx.moveTo(pointSet[0][0], pointSet[0][1]);
     for (_i = 0, _len = pointSet.length; _i < _len; _i++) {

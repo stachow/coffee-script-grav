@@ -15,12 +15,12 @@ require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(setti
   commands = new Commands(settings);
   browser.bindCommands(commands);
   state = new State(settings);
-  state.shipState.positionX = settings.screen.width / 2;
-  state.shipState.positionY = 200;
-  state.screenState.positionX = 0;
-  state.screenState.positionY = 0;
-  state.baseState.positionX = settings.screen.width / 2;
-  state.baseState.positionY = 400;
+  state.shipState.position[0] = settings.screen.width / 2;
+  state.shipState.position[1] = 200;
+  state.screenState.position[0] = 0;
+  state.screenState.position[1] = 0;
+  state.baseState.position[0] = settings.screen.width / 2;
+  state.baseState.position[1] = 400;
   gameLoopId = setInterval(function() {
     if (commands.quitCommand()) {
       clearInterval(gameLoopId);

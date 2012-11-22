@@ -6,8 +6,7 @@ define(function() {
 
     function ScreenState(settings) {
       this.settings = settings;
-      this.positionX = 0;
-      this.positionY = 0;
+      this.position = [0, 0];
       this.nextShiftX = 0;
       this.nextShiftY = 0;
     }
@@ -16,30 +15,30 @@ define(function() {
       var strayBottomAmount, strayBottomThreshold, strayLeftAmount, strayLeftThreshold, strayRightAmount, strayRightThreshold, strayTopAmount, strayTopThreshold;
       this.nextShiftX = 0;
       this.nextShiftY = 0;
-      strayRightThreshold = this.positionX + this.settings.screen.width - this.settings.screen.panWhenWithin;
-      strayRightAmount = shipState.positionX - strayRightThreshold;
-      if (strayRightAmount > 0 && this.positionX < (this.settings.game.width - this.settings.screen.width)) {
+      strayRightThreshold = this.position[0] + this.settings.screen.width - this.settings.screen.panWhenWithin;
+      strayRightAmount = shipState.position[0] - strayRightThreshold;
+      if (strayRightAmount > 0 && this.position[0] < (this.settings.game.width - this.settings.screen.width)) {
         this.nextShiftX = strayRightAmount;
-        this.positionX += this.nextShiftX;
+        this.position[0] += this.nextShiftX;
       } else {
-        strayLeftThreshold = this.positionX + this.settings.screen.panWhenWithin;
-        strayLeftAmount = strayLeftThreshold - shipState.positionX;
-        if (strayLeftAmount > 0 && this.positionX > 0) {
+        strayLeftThreshold = this.position[0] + this.settings.screen.panWhenWithin;
+        strayLeftAmount = strayLeftThreshold - shipState.position[0];
+        if (strayLeftAmount > 0 && this.position[0] > 0) {
           this.nextShiftX = -strayLeftAmount;
-          this.positionX += this.nextShiftX;
+          this.position[0] += this.nextShiftX;
         }
       }
-      strayBottomThreshold = this.positionY + this.settings.screen.height - this.settings.screen.panWhenWithin;
-      strayBottomAmount = shipState.positionY - strayBottomThreshold;
-      if (strayBottomAmount > 0 && this.positionY < (this.settings.game.height - this.settings.screen.height)) {
+      strayBottomThreshold = this.position[1] + this.settings.screen.height - this.settings.screen.panWhenWithin;
+      strayBottomAmount = shipState.position[1] - strayBottomThreshold;
+      if (strayBottomAmount > 0 && this.position[1] < (this.settings.game.height - this.settings.screen.height)) {
         this.nextShiftY = strayBottomAmount;
-        return this.positionY += this.nextShiftY;
+        return this.position[1] += this.nextShiftY;
       } else {
-        strayTopThreshold = this.positionY + this.settings.screen.panWhenWithin;
-        strayTopAmount = strayTopThreshold - shipState.positionY;
-        if (strayTopAmount > 0 && this.positionY > 0) {
+        strayTopThreshold = this.position[1] + this.settings.screen.panWhenWithin;
+        strayTopAmount = strayTopThreshold - shipState.position[1];
+        if (strayTopAmount > 0 && this.position[1] > 0) {
           this.nextShiftY = -strayTopAmount;
-          return this.positionY += this.nextShiftY;
+          return this.position[1] += this.nextShiftY;
         }
       }
     };

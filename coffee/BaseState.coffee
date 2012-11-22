@@ -2,9 +2,7 @@ define ['baseShape', 'collisionDetect'],
 	(baseShape, collisionDetect)->
 			class BaseState
 				constructor: (@settings) ->
-					@positionX = 0
-					@positionY = 0
-
+					@position = [0, 0]
 				livePoints: () =>
 					baseShape.points
 

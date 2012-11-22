@@ -1,0 +1,4 @@
+finish landing safely
+
+fix exhaust
+fix border bad rendering

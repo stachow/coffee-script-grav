@@ -1,8 +1,7 @@
 define ->
 	class ScreenState
 		constructor: (@settings) ->
-			@positionX 	= 0
-			@positionY 	= 0
+			@position = [0,0]
 			@nextShiftX = 0
 			@nextShiftY = 0
 		update: (shipState) ->
@@ -10,26 +9,26 @@ define ->
 			@nextShiftX = 0
 			@nextShiftY = 0
 
-			strayRightThreshold = @positionX + @settings.screen.width - @settings.screen.panWhenWithin
-			strayRightAmount = shipState.positionX - strayRightThreshold
-			if strayRightAmount > 0 and @positionX < (@settings.game.width - @settings.screen.width)
+			strayRightThreshold = @position[0] + @settings.screen.width - @settings.screen.panWhenWithin
+			strayRightAmount = shipState.position[0] - strayRightThreshold
+			if strayRightAmount > 0 and @position[0] < (@settings.game.width - @settings.screen.width)
 				@nextShiftX = strayRightAmount
-				@positionX += @nextShiftX 
+				@position[0] += @nextShiftX 
 			else	
-				strayLeftThreshold = @positionX + @settings.screen.panWhenWithin
-				strayLeftAmount = strayLeftThreshold - shipState.positionX
-				if strayLeftAmount > 0 and @positionX > 0
+				strayLeftThreshold = @position[0] + @settings.screen.panWhenWithin
+				strayLeftAmount = strayLeftThreshold - shipState.position[0]
+				if strayLeftAmount > 0 and @position[0] > 0
 					@nextShiftX = -strayLeftAmount
-					@positionX += @nextShiftX 
+					@position[0] += @nextShiftX 
 
-			strayBottomThreshold = @positionY + @settings.screen.height - @settings.screen.panWhenWithin
-			strayBottomAmount = shipState.positionY - strayBottomThreshold
-			if strayBottomAmount > 0 and @positionY < (@settings.game.height - @settings.screen.height)
+			strayBottomThreshold = @position[1] + @settings.screen.height - @settings.screen.panWhenWithin
+			strayBottomAmount = shipState.position[1] - strayBottomThreshold
+			if strayBottomAmount > 0 and @position[1] < (@settings.game.height - @settings.screen.height)
 				@nextShiftY = strayBottomAmount
-				@positionY += @nextShiftY 
+				@position[1] += @nextShiftY 
 			else	
-				strayTopThreshold = @positionY + @settings.screen.panWhenWithin
-				strayTopAmount = strayTopThreshold - shipState.positionY
-				if strayTopAmount > 0 and @positionY > 0
+				strayTopThreshold = @position[1] + @settings.screen.panWhenWithin
+				strayTopAmount = strayTopThreshold - shipState.position[1]
+				if strayTopAmount > 0 and @position[1] > 0
 					@nextShiftY = -strayTopAmount
-					@positionY += @nextShiftY 
+					@position[1] += @nextShiftY 
