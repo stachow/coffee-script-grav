@@ -27,6 +27,7 @@ require ['settings','renderer','State','Commands','browser'],
 			# game loop
 			gameLoopId = setInterval ->
 							clearInterval gameLoopId if commands.quitCommand()
+							clearInterval gameLoopId if state.condition != 'flying'
 							state.update commands
 							renderer ctx, settings, state
 

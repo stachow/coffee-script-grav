@@ -6,21 +6,23 @@ define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState', 'collisionDetec
 				@exhaust 	= new ExhaustState	settings
 				@screenState= new ScreenState 	settings
 				@baseState	= new BaseState 	settings
+				@condition = 'flying'
 
 			update: (commands)->
 				@shipState.changeDirection 	commands.currentTurnCommand()
 				@shipState.thrustOn 		commands.currentThrustCommand()
 				@shipState.updatePosition()
+
+				@condition = @conditionUpdate()
+
 				@exhaust.update(@shipState)
 				@screenState.update(@shipState)
 				return
 
-			condition: () ->
-				hitBase = collisionDetect.rectanglesCollide	@shipState.externalBoxPoints(), 
-																	@shipState.position,
-																	@baseState.externalBoxPoints(),
-																	@baseState.position
+			conditionUpdate: () ->
+				hitBase = collisionDetect.rectanglesCollide	@shipState.externalBoxPoints(), @baseState.externalBoxPoints()
 				if hitBase 
 					return if collisionDetect.landedSafely @shipState, @baseState then 'landed' else 'crashed' 
+				return 'flying'	
 				# ok, landed, collided
 

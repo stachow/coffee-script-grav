@@ -1,8 +1,8 @@
 define ->
 	(ctx, settings, state) ->
 		ctx.save()
-		ctx.translate state.baseState.position[0], state.baseState.position[1]
-		ctx.fillStyle = settings.base.color
+		#ctx.translate state.baseState.position[0], state.baseState.position[1]
+		ctx.fillStyle = if state.condition == 'landed' then settings.base.colorLanded else settings.base.color
 		pointSet = state.baseState.livePoints()
 		
 		# Draw ship

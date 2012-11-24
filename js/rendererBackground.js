@@ -23,7 +23,7 @@ define(function() {
       ctx.stroke();
     }
     ctx.strokeStyle = settings.background.borderColor;
-    if (state.condition() === 'crashed') {
+    if (state.condition === 'crashed') {
       ctx.strokeStyle = settings.background.borderColorAlert;
     }
     h = settings.game.height;

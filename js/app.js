@@ -25,6 +25,9 @@ require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(setti
     if (commands.quitCommand()) {
       clearInterval(gameLoopId);
     }
+    if (state.condition !== 'flying') {
+      clearInterval(gameLoopId);
+    }
     state.update(commands);
     return renderer(ctx, settings, state);
   }, 1000 / settings.screen.framesPerSecond);

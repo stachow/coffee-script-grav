@@ -1,5 +1,5 @@
-define ['shipShape', 'translator', 'collisionDetect'], 
-		(shipShape, translator, collisionDetect) -> 
+define ['shipShape', 'Translator', 'collisionDetect'], 
+		(shipShape, Translator, collisionDetect) -> 
 			class ShipState
 				constructor: (@settings) ->
 					@velocity = [0, 0]
@@ -7,14 +7,13 @@ define ['shipShape', 'translator', 'collisionDetect'],
 					@position = [0, 0]
 					@thrusting = false
 					@mass = 1 # this is not interesting at the moment
-
+					@translator = new Translator
 				changeDirection: (delta) =>
 					if delta
 						@direction += delta
 						radFactor = 2* Math.PI
 						if @direction >= radFactor 	then @direction -=radFactor
 						if @direction <    0 		then @direction +=radFactor
-						log @direction
 					return	
 
 				thrustOn: (bool) =>
@@ -39,10 +38,14 @@ define ['shipShape', 'translator', 'collisionDetect'],
 					return
 
 				livePoints: =>
-					translator.rotate point[0], point[1], @direction for point in shipShape.points
+					rotatedPoints = (@translator.rotate point[0], point[1], @direction for point in shipShape.points)
+					translatedPoints = @translator.translatePoints rotatedPoints, @position 
+					return translatedPoints
 
 				externalBoxPoints: =>
 					collisionDetect.externalLimits @livePoints()
 
 				engineRotatedPoints: =>
-					translator.rotate point[0], point[1], @direction for point in shipShape.enginePoints
+					rotatedPoints = (@translator.rotate point[0], point[1], @direction for point in shipShape.enginePoints)
+					return (@translator.translate point, @position for point in rotatedPoints)
+

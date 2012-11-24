@@ -19,8 +19,8 @@ define({
       color: '#dddddd'
     },
     landing: {
-      maxDownwardSpeed: 1,
-      maxSidewardSpeed: 0.2,
+      maxDownwardSpeed: 1.5,
+      maxSidewardSpeed: 0.5,
       maxAngleFromVertical: Math.pi / 16
     }
   },
@@ -46,6 +46,8 @@ define({
     }
   },
   base: {
-    color: 'red'
+    color: 'white',
+    colorLanded: 'blue',
+    colorCrashed: 'red'
   }
 });

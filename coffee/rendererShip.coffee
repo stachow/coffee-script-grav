@@ -2,8 +2,8 @@ define ->
 	(ctx, settings, state) ->
 		ctx.save()
 
-		ctx.translate state.shipState.position[0], state.shipState.position[1]
-		#ctx.rotate    state.shipState.direction 
+		#ctx.translate state.shipState.position[0], state.shipState.position[1]
+
 		ctx.strokeStyle = ctx.fillStyle = settings.ship.color
 
 		pointSet = state.shipState.livePoints()
@@ -28,7 +28,7 @@ define ->
 
 		# Centre of Gravity dot
 		ctx.fillStyle = settings.ship.color
-		ctx.fillRect -1, -1, 2, 2
+		ctx.fillRect state.shipState.position[0]-1, state.shipState.position[1]-1, 2, 2
 
 		ctx.restore()
 		return

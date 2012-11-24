@@ -4,7 +4,6 @@ define(function() {
   return function(ctx, settings, state) {
     var point, pointSet, _i, _j, _len, _len1, _ref;
     ctx.save();
-    ctx.translate(state.shipState.position[0], state.shipState.position[1]);
     ctx.strokeStyle = ctx.fillStyle = settings.ship.color;
     pointSet = state.shipState.livePoints();
     ctx.moveTo(pointSet[0][0], pointSet[0][1]);
@@ -29,7 +28,7 @@ define(function() {
       ctx.stroke();
     }
     ctx.fillStyle = settings.ship.color;
-    ctx.fillRect(-1, -1, 2, 2);
+    ctx.fillRect(state.shipState.position[0] - 1, state.shipState.position[1] - 1, 2, 2);
     ctx.restore();
   };
 });

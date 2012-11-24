@@ -4,8 +4,7 @@ define(function() {
   return function(ctx, settings, state) {
     var point, pointSet, _i, _len;
     ctx.save();
-    ctx.translate(state.baseState.position[0], state.baseState.position[1]);
-    ctx.fillStyle = settings.base.color;
+    ctx.fillStyle = state.condition === 'landed' ? settings.base.colorLanded : settings.base.color;
     pointSet = state.baseState.livePoints();
     ctx.beginPath();
     ctx.moveTo(pointSet[0][0], pointSet[0][1]);

@@ -1,4 +1,8 @@
+broken translate - needs to be a constructor to call methods in itself
 finish landing safely
-
 fix exhaust
 fix border bad rendering
+
+fucking do tdd!!
+nginx to node
+jenkins/hudson build on aws
