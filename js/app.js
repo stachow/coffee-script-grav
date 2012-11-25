@@ -25,7 +25,7 @@ require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(setti
     if (commands.quitCommand()) {
       clearInterval(gameLoopId);
     }
-    if (state.condition !== 'flying') {
+    if (state.condition === 'crashed') {
       clearInterval(gameLoopId);
     }
     state.update(commands);

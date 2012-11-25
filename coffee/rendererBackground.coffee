@@ -26,18 +26,21 @@ define ->
 			ctx.strokeStyle = settings.background.borderColorAlert if state.condition == 'crashed'
 
 
-			h = settings.game.height
-			w = settings.game.width
-			ctx.beginPath()
-			ctx.moveTo 0.5, 0.5
-			ctx.lineTo 0.5, h	
-			ctx.stroke()
-			ctx.lineTo w, h
-			ctx.stroke()
-			ctx.lineTo w, 0.5
-			ctx.stroke()
-			ctx.lineTo 0.5, 0.5	
-			ctx.stroke()
+			# h = settings.screen.height  
+			# w = settings.screen.width 
+			# x = state.screenState.position[0] + 0.5
+			# y = state.screenState.position[1] + 0.5
+
+			# ctx.beginPath()
+			# ctx.moveTo x, y
+			# ctx.lineTo x, y + h	
+			# ctx.stroke()
+			# ctx.lineTo x + w, y + h
+			# ctx.stroke()
+			# ctx.lineTo x + w, y
+			# ctx.stroke()
+			# ctx.lineTo x, y	
+			# ctx.stroke()
 			
 			
 			ctx.restore()

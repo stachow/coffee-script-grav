@@ -44,6 +44,10 @@ define(['settings'], function(settings) {
         log('Angle too much');
         return false;
       }
+      if (shipState.externalBoxPoints()[0][0] < baseState.externalBoxPoints()[0][0] || shipState.externalBoxPoints()[1][0] > baseState.externalBoxPoints()[1][0]) {
+        log('Off the edge');
+        return false;
+      }
       return true;
     }
   };

@@ -13,25 +13,28 @@ define(['shipState', 'ExhaustState', 'ScreenState', 'BaseState', 'collisionDetec
     }
 
     State.prototype.update = function(commands) {
-      this.shipState.changeDirection(commands.currentTurnCommand());
-      this.shipState.thrustOn(commands.currentThrustCommand());
-      this.shipState.updatePosition();
-      this.condition = this.conditionUpdate();
-      this.exhaust.update(this.shipState);
-      this.screenState.update(this.shipState);
-    };
-
-    State.prototype.conditionUpdate = function() {
       var hitBase;
       hitBase = collisionDetect.rectanglesCollide(this.shipState.externalBoxPoints(), this.baseState.externalBoxPoints());
       if (hitBase) {
         if (collisionDetect.landedSafely(this.shipState, this.baseState)) {
-          return 'landed';
+          this.condition = 'landed';
+          this.shipState.land();
         } else {
-          return 'crashed';
+          this.condition = 'crashed';
         }
+      } else {
+        this.condition = 'flying';
       }
-      return 'flying';
+      if (this.condition === 'landed') {
+        this.shipState.takeOff(commands.currentThrustCommand());
+      }
+      if (this.condition === 'flying') {
+        this.shipState.changeDirection(commands.currentTurnCommand());
+        this.shipState.thrustOn(commands.currentThrustCommand());
+        this.shipState.updatePosition();
+        this.exhaust.update(this.shipState);
+        this.screenState.update(this.shipState);
+      }
     };
 
     return State;

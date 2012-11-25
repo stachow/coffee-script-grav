@@ -41,6 +41,6 @@ define
 									27: 'stop'
 	base:
 		color:						'white'
-		colorLanded:				'blue'
+		colorLanded:				'green'
 		colorCrashed:				'red'			
 	

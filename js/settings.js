@@ -47,7 +47,7 @@ define({
   },
   base: {
     color: 'white',
-    colorLanded: 'blue',
+    colorLanded: 'green',
     colorCrashed: 'red'
   }
 });

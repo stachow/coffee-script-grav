@@ -49,3 +49,13 @@ define ['shipShape', 'Translator', 'collisionDetect'],
 					rotatedPoints = (@translator.rotate point[0], point[1], @direction for point in shipShape.enginePoints)
 					return (@translator.translate point, @position for point in rotatedPoints)
 
+				land: =>
+					@velocity 	= [0, 0]
+					@thrusting 	= false			
+					@direction = 0	
+					return
+
+				takeOff: (bool) =>
+					@thrusting 	= bool
+					@position[1] -= 2 if bool
+					return	

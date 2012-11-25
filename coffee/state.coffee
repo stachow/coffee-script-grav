@@ -9,20 +9,24 @@ define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState', 'collisionDetec
 				@condition = 'flying'
 
 			update: (commands)->
-				@shipState.changeDirection 	commands.currentTurnCommand()
-				@shipState.thrustOn 		commands.currentThrustCommand()
-				@shipState.updatePosition()
-
-				@condition = @conditionUpdate()
-
-				@exhaust.update(@shipState)
-				@screenState.update(@shipState)
-				return
-
-			conditionUpdate: () ->
 				hitBase = collisionDetect.rectanglesCollide	@shipState.externalBoxPoints(), @baseState.externalBoxPoints()
 				if hitBase 
-					return if collisionDetect.landedSafely @shipState, @baseState then 'landed' else 'crashed' 
-				return 'flying'	
-				# ok, landed, collided
+					if collisionDetect.landedSafely @shipState, @baseState
+						@condition = 'landed'
+						@shipState.land()
+					else
+						@condition = 'crashed' 
+				else
+					@condition = 'flying'	
 
+				if @condition == 'landed'
+					@shipState.takeOff commands.currentThrustCommand()
+
+				if @condition == 'flying'
+					@shipState.changeDirection 	commands.currentTurnCommand()
+					@shipState.thrustOn 		commands.currentThrustCommand()
+					@shipState.updatePosition()					
+					@exhaust.update(@shipState)
+					@screenState.update(@shipState)
+
+				return

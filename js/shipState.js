@@ -7,6 +7,10 @@ define(['shipShape', 'Translator', 'collisionDetect'], function(shipShape, Trans
 
     function ShipState(settings) {
       this.settings = settings;
+      this.takeOff = __bind(this.takeOff, this);
+
+      this.land = __bind(this.land, this);
+
       this.engineRotatedPoints = __bind(this.engineRotatedPoints, this);
 
       this.externalBoxPoints = __bind(this.externalBoxPoints, this);
@@ -104,6 +108,19 @@ define(['shipShape', 'Translator', 'collisionDetect'], function(shipShape, Trans
         }
         return _results;
       }).call(this);
+    };
+
+    ShipState.prototype.land = function() {
+      this.velocity = [0, 0];
+      this.thrusting = false;
+      this.direction = 0;
+    };
+
+    ShipState.prototype.takeOff = function(bool) {
+      this.thrusting = bool;
+      if (bool) {
+        this.position[1] -= 2;
+      }
     };
 
     return ShipState;

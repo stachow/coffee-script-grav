@@ -26,18 +26,6 @@ define(function() {
     if (state.condition === 'crashed') {
       ctx.strokeStyle = settings.background.borderColorAlert;
     }
-    h = settings.game.height;
-    w = settings.game.width;
-    ctx.beginPath();
-    ctx.moveTo(0.5, 0.5);
-    ctx.lineTo(0.5, h);
-    ctx.stroke();
-    ctx.lineTo(w, h);
-    ctx.stroke();
-    ctx.lineTo(w, 0.5);
-    ctx.stroke();
-    ctx.lineTo(0.5, 0.5);
-    ctx.stroke();
     ctx.restore();
   };
 });
