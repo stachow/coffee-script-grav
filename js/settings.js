@@ -3,7 +3,7 @@
 define({
   background: {
     color: '#fafafa',
-    gridColor: '#f5f5f5',
+    gridColor: '#ffffff',
     borderColor: 'red',
     borderColorAlert: 'green'
   },
@@ -16,12 +16,16 @@ define({
     exhaust: {
       frequencyFactor: 2,
       disappearFactor: 25,
-      color: '#dddddd'
+      color: '#cccccc'
     },
     landing: {
       maxDownwardSpeed: 1.5,
       maxSidewardSpeed: 0.5,
       maxAngleFromVertical: Math.pi / 16
+    },
+    bullet: {
+      speed: 10,
+      color: '#111111'
     }
   },
   screen: {
@@ -42,7 +46,9 @@ define({
       67: 'right',
       38: 'thrust',
       83: 'thrust',
-      27: 'stop'
+      27: 'stop',
+      32: 'shoot',
+      17: 'shoot'
     }
   },
   base: {

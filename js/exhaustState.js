@@ -24,7 +24,7 @@ define(function() {
       if (this.clock >= this.settings.ship.exhaust.frequencyFactor) {
         this.clock = 0;
         if (shipState.thrusting) {
-          return this.puffs.push([0, shipState.positionX, shipState.positionY]);
+          return this.puffs.push([0, shipState.liveEnginePoint()[0], shipState.liveEnginePoint()[1]]);
         }
       }
     };

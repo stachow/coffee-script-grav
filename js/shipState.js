@@ -15,7 +15,13 @@ define(['shipShape', 'Translator', 'collisionDetect'], function(shipShape, Trans
 
       this.externalBoxPoints = __bind(this.externalBoxPoints, this);
 
+      this.liveNosePoint = __bind(this.liveNosePoint, this);
+
+      this.liveEnginePoint = __bind(this.liveEnginePoint, this);
+
       this.livePoints = __bind(this.livePoints, this);
+
+      this.shootOn = __bind(this.shootOn, this);
 
       this.thrustOn = __bind(this.thrustOn, this);
 
@@ -25,6 +31,7 @@ define(['shipShape', 'Translator', 'collisionDetect'], function(shipShape, Trans
       this.direction = 0;
       this.position = [0, 0];
       this.thrusting = false;
+      this.shooting = false;
       this.mass = 1;
       this.translator = new Translator;
     }
@@ -45,6 +52,10 @@ define(['shipShape', 'Translator', 'collisionDetect'], function(shipShape, Trans
 
     ShipState.prototype.thrustOn = function(bool) {
       this.thrusting = bool;
+    };
+
+    ShipState.prototype.shootOn = function(bool) {
+      this.shooting = bool;
     };
 
     ShipState.prototype.updatePosition = function() {
@@ -68,7 +79,7 @@ define(['shipShape', 'Translator', 'collisionDetect'], function(shipShape, Trans
     };
 
     ShipState.prototype.livePoints = function() {
-      var point, rotatedPoints, translatedPoints;
+      var point, rotatedPoints;
       rotatedPoints = (function() {
         var _i, _len, _ref, _results;
         _ref = shipShape.points;
@@ -79,8 +90,17 @@ define(['shipShape', 'Translator', 'collisionDetect'], function(shipShape, Trans
         }
         return _results;
       }).call(this);
-      translatedPoints = this.translator.translatePoints(rotatedPoints, this.position);
-      return translatedPoints;
+      return this.translator.translatePoints(rotatedPoints, this.position);
+    };
+
+    ShipState.prototype.liveEnginePoint = function() {
+      var rotatedPoint;
+      rotatedPoint = this.translator.rotate(shipShape.enginePoints[1][0], shipShape.enginePoints[1][1], this.direction);
+      return this.translator.translate(rotatedPoint, this.position);
+    };
+
+    ShipState.prototype.liveNosePoint = function() {
+      return this.livePoints()[0];
     };
 
     ShipState.prototype.externalBoxPoints = function() {

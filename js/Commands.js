@@ -15,6 +15,8 @@ define(function() {
 
       this.quitCommand = __bind(this.quitCommand, this);
 
+      this.currentShootCommand = __bind(this.currentShootCommand, this);
+
       this.currentThrustCommand = __bind(this.currentThrustCommand, this);
 
       this.currentTurnCommand = __bind(this.currentTurnCommand, this);
@@ -23,7 +25,8 @@ define(function() {
         left: false,
         right: false,
         thrust: false,
-        stop: false
+        stop: false,
+        shoot: false
       };
     }
 
@@ -39,6 +42,14 @@ define(function() {
 
     Commands.prototype.currentThrustCommand = function() {
       return this.commands.thrust;
+    };
+
+    Commands.prototype.currentShootCommand = function() {
+      if (this.commands.shoot) {
+        this.commands.shoot = false;
+        return true;
+      }
+      return false;
     };
 
     Commands.prototype.quitCommand = function() {

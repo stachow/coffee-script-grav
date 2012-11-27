@@ -6,8 +6,10 @@ define ['shipShape', 'Translator', 'collisionDetect'],
 					@direction = 0 # nose direction in radians
 					@position = [0, 0]
 					@thrusting = false
+					@shooting = false
 					@mass = 1 # this is not interesting at the moment
 					@translator = new Translator
+
 				changeDirection: (delta) =>
 					if delta
 						@direction += delta
@@ -19,6 +21,10 @@ define ['shipShape', 'Translator', 'collisionDetect'],
 				thrustOn: (bool) =>
 					@thrusting = bool
 					return
+
+				shootOn: (bool) =>
+					@shooting = bool
+					return	
 
 				updatePosition: ->
 					currentForceY = @settings.game.gravity  
@@ -39,8 +45,14 @@ define ['shipShape', 'Translator', 'collisionDetect'],
 
 				livePoints: =>
 					rotatedPoints = (@translator.rotate point[0], point[1], @direction for point in shipShape.points)
-					translatedPoints = @translator.translatePoints rotatedPoints, @position 
-					return translatedPoints
+					return @translator.translatePoints rotatedPoints, @position 
+					
+				liveEnginePoint: =>
+					rotatedPoint = @translator.rotate shipShape.enginePoints[1][0], shipShape.enginePoints[1][1], @direction
+					return @translator.translate rotatedPoint, @position
+
+				liveNosePoint: =>
+					@livePoints()[0]
 
 				externalBoxPoints: =>
 					collisionDetect.externalLimits @livePoints()

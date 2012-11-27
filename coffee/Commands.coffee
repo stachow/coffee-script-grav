@@ -6,6 +6,7 @@ define ->
 					right:	false
 					thrust: false
 					stop:	false
+					shoot:	false
 
 			currentTurnCommand: =>
 				return @settings.ship.turnRatio   		if @commands.right and not @commands.left
@@ -15,6 +16,13 @@ define ->
 			currentThrustCommand: =>
 				return @commands.thrust
 
+			currentShootCommand: =>
+				# lets make it so that you have to key up and key down to fire (i.e. no stream of bullets if you hold down)
+				if @commands.shoot
+					@commands.shoot = false
+					return true
+				return false
+				
 			quitCommand: =>
 				return @commands.stop
 

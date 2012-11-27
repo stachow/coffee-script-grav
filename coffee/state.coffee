@@ -1,12 +1,13 @@
-define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState', 'collisionDetect'], 
-	(ShipState, ExhaustState, ScreenState, BaseState, collisionDetect) ->
+define ['shipState', 'ExhaustState', 'BulletState', 'ScreenState', 'BaseState', 'collisionDetect'], 
+	(ShipState, ExhaustState, BulletState, ScreenState, BaseState, collisionDetect) ->
 		class State
 			constructor: (settings) ->
-				@shipState 	= new ShipState 	settings
-				@exhaust 	= new ExhaustState	settings
-				@screenState= new ScreenState 	settings
-				@baseState	= new BaseState 	settings
-				@condition = 'flying'
+				@shipState 		= new ShipState 	settings
+				@exhaustState 	= new ExhaustState	settings
+				@bulletState	= new BulletState 	settings
+				@screenState 	= new ScreenState 	settings
+				@baseState		= new BaseState 	settings
+				@condition  	= 'flying'
 
 			update: (commands)->
 				hitBase = collisionDetect.rectanglesCollide	@shipState.externalBoxPoints(), @baseState.externalBoxPoints()
@@ -25,8 +26,11 @@ define ['shipState', 'ExhaustState', 'ScreenState', 'BaseState', 'collisionDetec
 				if @condition == 'flying'
 					@shipState.changeDirection 	commands.currentTurnCommand()
 					@shipState.thrustOn 		commands.currentThrustCommand()
+					@shipState.shootOn 			commands.currentShootCommand()
 					@shipState.updatePosition()					
-					@exhaust.update(@shipState)
 					@screenState.update(@shipState)
 
+
+				@exhaustState.update(@shipState)
+				@bulletState.update(@shipState)
 				return

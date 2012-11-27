@@ -13,5 +13,5 @@ define ->
 				@clock += 1
 				if @clock >= @settings.ship.exhaust.frequencyFactor	
 					@clock = 0
-					@puffs.push [0, shipState.positionX, shipState.positionY] if shipState.thrusting
+					@puffs.push [0, shipState.liveEnginePoint()[0], shipState.liveEnginePoint()[1]] if shipState.thrusting
 					

@@ -2,13 +2,13 @@
 
 define(function() {
   return function(ctx, settings, state) {
-    var puff, _i, _len, _ref;
+    var bullet, _i, _len, _ref;
     ctx.save();
-    ctx.fillStyle = settings.ship.exhaust.color;
-    _ref = state.exhaustState.puffs;
+    ctx.fillStyle = settings.ship.bullet.color;
+    _ref = state.bulletState.bullets;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      puff = _ref[_i];
-      ctx.fillRect(puff[1] - 1, puff[2] - 1, 2, 2);
+      bullet = _ref[_i];
+      ctx.fillRect(bullet[0] - 1, bullet[1] - 1, 2, 2);
     }
     ctx.restore();
   };
