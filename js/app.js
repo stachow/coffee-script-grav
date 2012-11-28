@@ -8,19 +8,14 @@ window.log = function() {
   }
 };
 
-require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(settings, renderer, State, Commands, browser) {
+require(['settings', 'render/render', 'state/State', 'environ/Commands', 'environ/browser', 'level/level01'], function(settings, render, State, Commands, browser, level01) {
   var canvas, commands, ctx, gameLoopId, state, _ref;
   canvas = browser.getCanvas('gameScreen');
   _ref = [canvas.getContext('2d'), canvas.width, canvas.height], ctx = _ref[0], settings.screen.width = _ref[1], settings.screen.height = _ref[2];
   commands = new Commands(settings);
   browser.bindCommands(commands);
   state = new State(settings);
-  state.shipState.position[0] = settings.screen.width / 2;
-  state.shipState.position[1] = 200;
-  state.screenState.position[0] = 0;
-  state.screenState.position[1] = 0;
-  state.baseState.position[0] = settings.screen.width / 2;
-  state.baseState.position[1] = 400;
+  state.startLevel(level01);
   gameLoopId = setInterval(function() {
     if (commands.quitCommand()) {
       clearInterval(gameLoopId);
@@ -29,6 +24,6 @@ require(['settings', 'renderer', 'State', 'Commands', 'browser'], function(setti
       clearInterval(gameLoopId);
     }
     state.update(commands);
-    return renderer(ctx, settings, state);
+    return render(ctx, settings, state);
   }, 1000 / settings.screen.framesPerSecond);
 });

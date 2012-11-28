@@ -5,6 +5,7 @@ define
 		gridColor:					'#ffffff'
 		borderColor:				'red'
 		borderColorAlert:			'green'
+
 	ship:
 		color: 						'#555555'
 		fillColor:					'#fafafa'
@@ -18,7 +19,7 @@ define
 		landing:
 			maxDownwardSpeed:		1.5
 			maxSidewardSpeed:		0.5
-			maxAngleFromVertical:	Math.pi/16
+			maxAngleFromVertical:	Math.pi/32
 		bullet:
 			speed:					10
 			color:					'#111111'
@@ -44,6 +45,7 @@ define
 									27: 'stop'
 									32: 'shoot'
 									17: 'shoot'
+
 	base:
 		color:						'white'
 		colorLanded:				'green'

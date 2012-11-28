@@ -6,3 +6,4 @@ finish landing safely and
 fucking do tdd!!
 nginx to node
 jenkins/hudson build on aws
+refactor button commands to a more sensible scheme

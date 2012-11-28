@@ -21,7 +21,7 @@ define({
     landing: {
       maxDownwardSpeed: 1.5,
       maxSidewardSpeed: 0.5,
-      maxAngleFromVertical: Math.pi / 16
+      maxAngleFromVertical: Math.pi / 32
     },
     bullet: {
       speed: 10,
